@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Horror Website</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    #horror-text {
+        font-size: 24px;
+        margin-top: 100px;
+        opacity: 0; /* Initially hidden */
+    }
+
+    /* Animation class */
+    .fade-in {
+        animation: fadeIn 5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    
+    /* Animation class */
+    .fade-out {
+        animation: fadeOut 5s ease forwards;
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 0;
+        }
+        25% {
+            opacity: 1;
+        }
+        75%{
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+<div id="horror-text">Welcome to the Nightmare</div>
+
+<script>
+    const horrorText = document.getElementById('horror-text');
+    const messages = [
+        "You can't escape.",
+        "They're watching you.",
+        "The darkness consumes all.",
+        "Fear is your only companion.",
+        "Something lurks in the shadows.",
+        "Your worst nightmares come to life.",
+        "The end is near.",
+        "Abandon all hope.",
+        "There's no turning back."
+    ];
+
+    // Function to display random horror messages with fade-in animation
+    function displayHorrorMessage() {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        const message = messages[randomIndex];
+
+        // Add fade-in class and update text content
+        horrorText.classList.add('fade-in');
+        horrorText.textContent = message;
+
+        // Remove fade-in class after animation completes
+        setTimeout(() => {
+            horrorText.classList.remove('fade-in');
+        }, 5000); // Same duration as animation
+    }
+
+    // Trigger the horror messages periodically
+    setInterval(displayHorrorMessage, 10000);
+</script>
+</body>
+</html>
